@@ -1,7 +1,7 @@
 extern crate image;
 
 fn main() {
-	type Count = u64;
+    type Count = u64;
     use std::env;
     use std::path::Path;
     use image::GenericImage;
@@ -59,11 +59,14 @@ fn main() {
 	let sum2 = sum2_hor.iter().chain(sum2_ver.iter()).fold(0, |u, &f| u + f);
 	let total = ((total_hor + total_ver) * 3) as f32;
 
-    println!("AA metrics:");
-    print_metric(sum1_hor, total_hor, 1.0, "Horisontal pow1");
-    print_metric(sum2_hor, total_hor, 0.5, "Horisontal pow2");
-    print_metric(sum1_ver, total_ver, 1.0, "Vertical pow1");
-    print_metric(sum2_ver, total_ver, 0.5, "Vertical pow2");
+	if false {
+		println!("Detail AA metrics:");
+		print_metric(sum1_hor, total_hor, 1.0, "\tHorisontal pow1");
+		print_metric(sum2_hor, total_hor, 0.5, "\tHorisontal pow2");
+		print_metric(sum1_ver, total_ver, 1.0, "\tVertical pow1");
+		print_metric(sum2_ver, total_ver, 0.5, "\tVertical pow2");
+	}
+
 	println!("Avg pow1: {:2}, pow2: {:2}", (sum1 as f32) / total,
 		((sum2 as f32) / total).sqrt());
 }
